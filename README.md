@@ -1,11 +1,6 @@
 # The Gossip Project
-## Le meilleur endroit sur terre pour cracher sur qui tu veux
+## MOMO aka M'hamed LARBI
 
-### THP S5 J1
-#### Mathilde Briend // Thibault Telliez // Antoine Jacques // Vincent Gillibert
-
-Construire le front d'une app Rails développée plus tôt
-* Liaisons entre les routes, controllers et views
 
 Pour tester l'app :
 * Cloner le repo

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+
+	<body> <br/>
+		<h1 class="titre-login">Log in!</h1> <br/>
+		<div class="section-login">
+		  	<div class="formulaire">
+
+		  	<%= form_tag url_for(controller: :sessions, action: :create, email: session[:email], password: session[:password]), method: "post" do %>
+			<strong class="label-tag"> <%= label_tag 'e-mail address' %> </strong> <br/>
+		      <%= text_field_tag 'email' %>
+		      <br /> <br />
+
+		      <strong class="label-tag"> <%= label_tag 'Password' %> </strong> <br/>
+		      <%= text_field_tag 'password' %>
+		      <br /> <br />
+		      	<%= submit_tag "Log in" %>
+		      <% end %>
+			</div>
+		</div>
+	</body>
+</html>

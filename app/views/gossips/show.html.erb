@@ -5,13 +5,17 @@
     <title>GOSSIP GROS</title>
   </head>
   <body>
+  <div class="container">
+    <div class="row justify-content-md-center">
 
-    <h1>TU AS DEMANDÉ DU DOSS</h1>
+    <h3><p> <%= @gossip.title %> </p></h3>
 
-    <h3><b> <%= @gossip.title %> </b></h3>
-        <p> <%= @gossip.content %> </p>
+        <h2><p> <%= @gossip.content %> </p></h2>
         <p> Date de création : <%= @gossip.created_at %> </p>
         <p> Ce doss' a été lâché par <b><%= @gossip.user.first_name %> <%= @gossip.user.last_name %></b></p>
+  </div>
+
+  <div class="row justify-content-md-center">
         <p>
 	          <% if logged_in? == true %>
 	            <% if @gossip.likes.where(user_id: current_user.id).count > 0 %>
@@ -30,8 +34,12 @@
         <%= link_to "Modifier le potin", edit_gossip_path(:id => @gossip.id), class:"btn btn-warning btn-sm", role:"button" %>
         <%= link_to "Supprimer", @gossip, method: :delete, class:"btn btn-danger btn-sm", role:"button" %>
         </p>
+  </div>
 
+<div class="container">
+    
         <div class="formulaire">
+        <div class="row justify-content-md-center">
         <p>
           <%= form_tag url_for(controller: :comments, action: :create, id: params[:id], gossip_id: params[:id]), method: "post" do %>
           <b><%= label_tag 'Continuer à gossiper' %></b> <br>
@@ -47,6 +55,7 @@
           <p style="font-size:14px;"> <b><%= comment.user.first_name %></b> <br>
             <%= comment.content %> </p>
         <% end %>
+  </div>
 
   </body>
 </html>

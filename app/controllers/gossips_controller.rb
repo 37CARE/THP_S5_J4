@@ -16,7 +16,7 @@ class GossipsController < ApplicationController
 
     if @gossip.save # essaie de sauvegarder en base @gossip
       redirect_to '/'
-      flash[:success] = "Potin créé ! Merci d'entretenir le commérage 👌"
+      flash[:success] = "Potin créé ! Tu peux maintenant rivaliser avec une concierge portugaise"
       # si ça marche, il redirige vers la page d'index du site
     else
       # sinon, il render la view new (qui est celle sur laquelle on est déjà)
@@ -55,7 +55,7 @@ class GossipsController < ApplicationController
   def currentuser_gossipauthor?
     unless current_user.id == Gossip.find(params[:id]).user.id
       redirect_to root_path
-      flash[:danger] = "Non non non ;)"
+      flash[:danger] = "Heuuuuu"
     end
   end
 

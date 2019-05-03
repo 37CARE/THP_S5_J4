@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Vive moi</title>
   </head>
   <body>
-
-    <h1> Haaave you met <b><%= @author.first_name %></b> ?</h1>
+<div class="row justify-content-md-center">
+<div class="container">
+    <h1>Auteur: <b><%= @author.first_name %></b> ?</h1>
 
       <p>Last name : <%= @author.last_name %> </p>
       <p>Description : <%= @author.description %> </p>
@@ -17,6 +17,7 @@
       <p>
         <%= link_to "Voir la ville", city_path(:id => @author.city.id), class:"btn btn-primary btn-sm", role:"button" %>
       </p>
-
+      </div>
+</div>
   </body>
 </html>

@@ -28,7 +28,19 @@
         </li>
       </ul>
     </div>
-    <a class="btn btn-warning" href="/gossips/new/" role="button">Créer un potin</a>
+    
+              
+              <% if current_user %> Logged in as <%= current_user.email %>.
+                <%= link_to "Log Out", logout_path("current"), method: "delete", class:"btn btn-warning"%>
+              <% else %>
+                <%= link_to "Login ", login_path, class:"btn btn-warning" %>  <%= link_to " Sign Up", signup_path, method: "create", class:"btn btn-primary" %>
+            
+                  
+
+                
+
+<% end %>
+     
   </nav>
 
   <body>

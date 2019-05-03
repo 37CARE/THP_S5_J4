@@ -3,8 +3,16 @@ class ApplicationController < ActionController::Base
 
     def authenticate_user
       unless current_user
-        flash[:danger] = "Eh ouais, tu ne peux rien faire si t'as pas de compte chez nous... C'est la dure loi de la data"
-        redirect_to new_session_path
+        flash[:danger] = "créé un compte dude"
+        redirect_to "/login"
       end
     end
+
+    private
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  helper_method :current_user
 end

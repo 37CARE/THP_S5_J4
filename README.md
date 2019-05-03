@@ -8,5 +8,11 @@ Pour tester l'app :
 * `rails db:migrate`
 * `rails db:seed`
 * `rails server`
+* `rails console`
+* `tp User.all`
+* Récupère un email 
 * Se rendre sur localhost:3000/ dans le navigateur
-* Enjoy ce super site social
+* LOGIN
+* entre "password" dans le champ password.
+
+ENJOY 

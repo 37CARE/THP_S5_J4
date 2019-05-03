@@ -2,18 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Vive moi</title>
+    <title>GOSSIPPPP</title>
   </head>
   <body>
 
-    <h1> Bienvenue dans la charmante ville de <b><%= @city.name %></b> </h1>
+  
+    <div class="row justify-content-md-center">
+    <div class="container">
 
-    <p>Voilà tous les potins du coin (tu ne verras plus jamais ton voisin du même oeil) :</p>
+    <h1> ICI C'EST  <b><%= @city.name %></b> !!!</h1>
+
+    <p>What's new in town??:</p>
 
     <% @city.gossips.each do |gossip| %>
       <p>
-        👉 <b><%= gossip.title %></b><br/>
-        🙊 par <b><%= gossip.user.first_name %> <%= gossip.user.last_name %></b><br/>
+      <b><%= gossip.title %></b><br/>
+       écrit par <b><%= gossip.user.first_name %> <%= gossip.user.last_name %></b><br/>
       </p>
 
       <p>
@@ -28,6 +32,6 @@
       </p>
 
     <% end %>
-
+</div>
   </body>
 </html>

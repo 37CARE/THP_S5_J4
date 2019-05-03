@@ -2,23 +2,44 @@ class UsersController < ApplicationController
 
   def show
     @author = User.find(params[:id])
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(first_name:params[:first_name], last_name:params[:last_name], email:params[:email], password:params[:password], city_id:City.last.id) # avec xxx qui sont les données obtenues à partir du formulaire
-
-    if @user.save # essaie de sauvegarder en base @gossip
-      session[:user_id] = @user.id
-      redirect_to root_path
-      # si ça marche, il redirige vers la page d'index du site
-    else
-      # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-      render 'new'
+    @id = params[:id].to_i
+      end
+    
+      def new
+      end
+    
+      def create
+        user = User.new(first_name: params[:first_name].capitalize,
+          city_id: params[:city_id],
+          email: params[:email],
+          password: params[:password],
+          password_confirmation: params[:password_confirmation])
+        if user.save
+          session[:user_id] = @user.id
+          flash[:success] = "Welcome #{user.first_name}, you're now one of us!"
+          redirect_to '/index'
+        else
+          flash[:danger] = "#{user.errors.messages.keys[0]} #{user.errors.messages.values[0][0]}"
+          puts user.errors
+          render "users/new"
+        end
+      end
+    
+      def edit
+      end
+    
+      def update
+        id = params[:id]
+        user = User.find(id)
+        puts "$"*60
+        puts "ca bien du update"
+        puts user
+        if user.authenticate(params[:password])
+            flash[:success] = "Profile updated."
+            redirect_to "/index"
+        else
+            flash[:danger] = "Update failed"
+            render "edit"
+        end
+      end
     end
-  end
-
-end
